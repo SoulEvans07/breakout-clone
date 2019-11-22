@@ -3,17 +3,27 @@
 public class BallController : MonoBehaviour {
     private Rigidbody2D _rigidbody;
 
-    public float speed = 9f;
-    public Vector3 startVelocity = new Vector3(1, 0, 0);
-    [SerializeField] private Vector3 vel;
+    public float speed = 100f;
 
     private void Awake() {
         this._rigidbody = this.GetComponent<Rigidbody2D>();
-        this._rigidbody.velocity = this.startVelocity;
+        this._rigidbody.velocity = Vector2.up * this.speed;
     }
 
     private void Update() {
-        _rigidbody.velocity = _rigidbody.velocity.normalized * speed;
-        this.vel = _rigidbody.velocity;
+    }
+
+    private float hitFactor(Vector2 ballPos, Vector2 racketPos, float racketWidth) {
+        // 1  -0.5  0  0.5   1  <- x value
+        // ===================  <- racket
+        return (ballPos.x - racketPos.x) / racketWidth;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            float x = hitFactor(transform.position, other.transform.position, other.collider.bounds.size.x);
+            Vector2 dir = new Vector2(x, 1).normalized;
+            _rigidbody.velocity = dir * speed;
+        }
     }
 }

@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PaddleController : MonoBehaviour {
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
-    public float speed = 1f;
+    public GameObject ballPrefab;
+    public int ballCount = 4;
+    public TextMeshProUGUI countText;
+
+    public float speed = 150f;
     private float x;
 
     private void Awake() {
         this._transform = transform;
         this._rigidbody = this.GetComponent<Rigidbody2D>();
+        countText.text = ballCount.ToString();
     }
 
     private void Update() {
@@ -18,6 +24,16 @@ public class PaddleController : MonoBehaviour {
     }
 
     private void Move() {
-        this._rigidbody.velocity = new Vector3(this.x * this.speed, 0, 0);
+        this._rigidbody.velocity = Vector3.right * this.x * this.speed;
+    }
+
+    public void SpawnBall() {
+        ballCount--;
+        countText.text = ballCount.ToString();
+        if (ballCount == 0) {
+            Debug.Log("Game Over!");
+        } else {
+            Instantiate(ballPrefab, _transform.position + Vector3.up * 10, Quaternion.identity);
+        }
     }
 }
