@@ -10,7 +10,8 @@ public class BallController : MonoBehaviour {
         this._rigidbody.velocity = Vector2.up * this.speed;
     }
 
-    private void Update() {
+    private void FixedUpdate() {
+        _rigidbody.velocity = _rigidbody.velocity.normalized * speed;
     }
 
     private float hitFactor(Vector2 ballPos, Vector2 racketPos, float racketWidth) {
