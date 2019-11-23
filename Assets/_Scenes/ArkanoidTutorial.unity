@@ -1313,7 +1313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &319797632
 BoxCollider2D:
@@ -1378,7 +1378,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!114 &319797635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6537,7 +6537,7 @@ PrefabInstance:
     - target: {fileID: 2832925779684175084, guid: 36f60ab51b9224e4e9d6b269be26360e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2832925779684175084, guid: 36f60ab51b9224e4e9d6b269be26360e,
         type: 3}

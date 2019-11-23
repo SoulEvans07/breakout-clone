@@ -4,9 +4,15 @@ public class TheVoid : MonoBehaviour {
     public PaddleController paddle;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Ball")) {
+        bool isBall = other.CompareTag("Ball");
+        bool isPowerup = other.CompareTag("PowerUp");
+        
+        if (isBall || isPowerup) {
             Destroy(other.gameObject);
-            paddle.SpawnBall();
+
+            if (isBall) {
+                paddle.SpawnBall();
+            }
         }
     }
 }

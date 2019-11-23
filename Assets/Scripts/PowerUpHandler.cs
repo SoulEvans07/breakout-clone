@@ -1,9 +1,14 @@
 using UnityEngine;
 
 public class PowerUpHandler : MonoBehaviour {
+    private const float BASE_WIDTH = 33f;
+    private Transform _transform;
+
     private ActivePowerUp activePowerup;
 
     private void Awake() {
+        _transform = GetComponent<Transform>();
+
         activePowerup = null;
     }
 
@@ -26,5 +31,11 @@ public class PowerUpHandler : MonoBehaviour {
         }
         
         powerUp.Apply(this);
+    }
+
+    public void AddPaddleLength(float amount) {
+        if (_transform.localScale.x + amount <= 6) {
+            _transform.localScale = new Vector3(_transform.localScale.x + amount, 1, 1);
+        }
     }
 }

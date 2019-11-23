@@ -2,6 +2,10 @@
 using TMPro;
 
 public class PaddleController : MonoBehaviour {
+    private const float BASE_WIDTH = 33f;
+    [SerializeField]
+    private float bound;
+
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
@@ -21,6 +25,11 @@ public class PaddleController : MonoBehaviour {
     private void Update() {
         this.x = Input.GetAxis("Horizontal");
         Move();
+        
+        Vector3 _pos = _transform.position;
+        float scaleX = _transform.localScale.x;
+        bound = 103f - (BASE_WIDTH * scaleX / 2);
+        _transform.position = new Vector3(Mathf.Clamp(_pos.x, -bound, bound), _pos.y, 0);
     }
 
     private void Move() {
