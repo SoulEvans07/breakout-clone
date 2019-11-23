@@ -4,8 +4,8 @@ using UnityEngine;
 public class PowerUpHandler : MonoBehaviour {
     private Transform _transform;
 
-    private List<ActivePowerUp> activePowerupList;
     public PaddleController controller;
+    public List<ActivePowerUp> activePowerupList;
 
     private void Awake() {
         _transform = GetComponent<Transform>();
@@ -26,7 +26,7 @@ public class PowerUpHandler : MonoBehaviour {
         }
     }
 
-    public void ActivatePowerUp(PowerUp powerUp) {
+    public void ActivatePowerUp(PowerUpObject powerUp) {
         activePowerupList.Add(new ActivePowerUp(powerUp));
         powerUp.Apply(this);
     }

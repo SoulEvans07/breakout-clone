@@ -6,7 +6,7 @@ public class PowerUpBehavior : MonoBehaviour {
     private PowerUpHandler handler;
 
     [SerializeField]
-    private PowerUp powerUp;
+    private PowerUpObject powerUp;
 
     public float speed = 10f;
 
@@ -27,7 +27,7 @@ public class PowerUpBehavior : MonoBehaviour {
         }
     }
 
-    public void SetPowerUp(PowerUp pu) {
+    public void SetPowerUp(PowerUpObject pu) {
         this.powerUp = pu;
         this.gameObject.name = pu.name;
         _renderer.color = pu.color;

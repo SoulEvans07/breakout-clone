@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b458628c094448a38256e3f4b1c5b25, type: 3}
   m_Name: BallSpeedUp
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 10
   isOverwritable: 0
   applyAction:
     m_PersistentCalls:

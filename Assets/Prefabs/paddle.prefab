@@ -121,8 +121,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 4}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -16.5, y: 0}
-  - {x: 16.5, y: 0}
+  - {x: -17.5, y: 0}
+  - {x: 17.5, y: 0}
 --- !u!114 &853284711387366938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 853284711387366938}
+  activePowerupList: []

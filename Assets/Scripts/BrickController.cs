@@ -6,7 +6,7 @@ public class BrickController : MonoBehaviour {
 
     private BoxCollider2D _collider;
 
-    public PowerUp powerUp;
+    public PowerUpObject powerUp;
     public GameObject powerUpPickupPrefab;
 
     private void Awake() {

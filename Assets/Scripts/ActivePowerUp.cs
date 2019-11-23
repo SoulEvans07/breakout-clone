@@ -1,8 +1,11 @@
+using System;
+
+[Serializable]
 public class ActivePowerUp {
-    public PowerUp powerUp;
+    public PowerUpObject powerUp;
     public float timer;
 
-	public ActivePowerUp(PowerUp powerUp) {
+	public ActivePowerUp(PowerUpObject powerUp) {
 		this.powerUp = powerUp;
 		this.timer = powerUp.duration;
 	}

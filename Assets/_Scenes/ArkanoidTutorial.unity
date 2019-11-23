@@ -2882,7 +2882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &854444929
 Transform:
   m_ObjectHideFlags: 0
@@ -4361,7 +4361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1399729684
 Transform:
   m_ObjectHideFlags: 0
@@ -4391,6 +4391,14 @@ MonoBehaviour:
   brickPrefab: {fileID: 3078983048576248637, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
     type: 3}
   path: Assets/Resources/level_01.json
+  powerupList:
+  - {fileID: 11400000, guid: 34bee605023b74fcb8c6c6f9c6ccb384, type: 2}
+  - {fileID: 11400000, guid: 4a8ef6f18dfce48ccaf1766f80dd41c0, type: 2}
+  - {fileID: 11400000, guid: 5725f9e1046e447a8b78e63e73608747, type: 2}
+  - {fileID: 11400000, guid: 29e73f44335f74d15bf738f2b73a98cc, type: 2}
+  - {fileID: 11400000, guid: 073aac6e6233243b985d18ecf76632ef, type: 2}
+  - {fileID: 11400000, guid: e8a5c4329d66e458f9262dbec5bee6c6, type: 2}
+  - {fileID: 11400000, guid: b55db424e62724b38ac404c696f4ce85, type: 2}
 --- !u!1001 &1402193934
 PrefabInstance:
   m_ObjectHideFlags: 0
