@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &778909126064091915
+--- !u!1001 &6111953740902983299
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -66,6 +66,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003474357351250104, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91fa20bcc5578471bbea65aee1a1a78f,
+        type: 3}
+    - target: {fileID: 4003474357351250104, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c, type: 3}

@@ -3,6 +3,9 @@ using UnityEngine;
 public class BrickController : MonoBehaviour {
     static int count = 0;
 
+    public PowerUp powerUp;
+    public GameObject powerUpPickupPrefab;
+
     private void Awake() {
         count++;
     }
@@ -13,6 +16,9 @@ public class BrickController : MonoBehaviour {
             Destroy(this.gameObject);
             if (count == 0) {
                 Debug.Log("You won!");
+            } else if (powerUp != null) {
+                GameObject pu = Instantiate(powerUpPickupPrefab, transform.position, Quaternion.identity);
+                pu.GetComponent<PowerUpBehavior>().SetPowerUp(powerUp);
             }
         }
     }
