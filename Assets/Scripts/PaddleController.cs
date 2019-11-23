@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 
 public class PaddleController : MonoBehaviour {
-    private const float BASE_WIDTH = 33f;
+    public static List<GameObject> ballList = new List<GameObject>();
+    private static float BASE_WIDTH = 33f;
     private float bound;
 
     private Transform _transform;
@@ -19,6 +21,10 @@ public class PaddleController : MonoBehaviour {
         this._transform = transform;
         this._rigidbody = this.GetComponent<Rigidbody2D>();
         countText.text = ballCount.ToString();
+    }
+
+    private void Start() {
+        this.SpawnBall();
     }
 
     private void Update() {
@@ -40,9 +46,17 @@ public class PaddleController : MonoBehaviour {
         countText.text = ballCount.ToString();
         if (ballCount == 0) {
             Debug.Log("Game Over!");
-        } else {
-            Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
+        } else if (ballList.Count == 0) {
+            GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
+            ballList.Add(ball);
         }
+    }
+
+    public void SpawnExtraBall() {
+        ballCount++;
+        countText.text = ballCount.ToString();
+        GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
+        ballList.Add(ball);
     }
 
     public void AddExtraBall(int amount) {

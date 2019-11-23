@@ -8,6 +8,7 @@ public class TheVoid : MonoBehaviour {
         bool isPowerup = other.CompareTag("PowerUp");
         
         if (isBall || isPowerup) {
+            PaddleController.ballList.Remove(other.gameObject);
             Destroy(other.gameObject);
 
             if (isBall) {

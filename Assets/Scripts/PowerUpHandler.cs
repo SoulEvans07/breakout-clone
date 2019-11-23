@@ -48,4 +48,8 @@ public class PowerUpHandler : MonoBehaviour {
             brick.EnableTrigger(enable);
         }
     }
+
+    public void SpawnExtraBall() {
+        controller.SpawnExtraBall();
+    }
 }

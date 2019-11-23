@@ -23,4 +23,9 @@ public class PowerUpAction : MonoBehaviour {
     public void ExtraBallApply(PowerUpHandler controller) {
 		controller.AddExtraBall(1);
 	}
+
+    // Spawn Extra ball
+    public void SpawnExtraBallApply(PowerUpHandler controller) {
+		controller.SpawnExtraBall();
+	}
 }

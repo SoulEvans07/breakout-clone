@@ -73,11 +73,5 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ee32078d5becd401a9a018ca709a3f39,
         type: 3}
-    - target: {fileID: 1193495312860572485, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
-        type: 3}
-      propertyPath: powerUp
-      value: 
-      objectReference: {fileID: 11400000, guid: 073aac6e6233243b985d18ecf76632ef,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c, type: 3}
