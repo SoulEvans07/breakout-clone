@@ -33,3 +33,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   color: {r: 0.84822536, g: 0.3066038, b: 1, a: 1}
+  type: 1

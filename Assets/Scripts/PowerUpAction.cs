@@ -1,13 +1,22 @@
 using UnityEngine;
 
 public class PowerUpAction : MonoBehaviour {
-    // Double Length
-    public void DoubleLengthApply(PowerUpHandler controller) {
+    // Grow Paddle
+    public void GrowPaddleApply(PowerUpHandler controller) {
 		controller.AddPaddleLength(1);
 	}
 
-	public void DoubleLengthRemove(PowerUpHandler controller) {
+	public void GrowPaddleRemove(PowerUpHandler controller) {
 		controller.AddPaddleLength(-1);
+	}
+
+    // Shrink Paddle
+    public void ShrinkPaddleApply(PowerUpHandler controller) {
+		controller.AddPaddleLength(-0.5f);
+	}
+
+	public void ShrinkPaddleRemove(PowerUpHandler controller) {
+		controller.AddPaddleLength(0.5f);
 	}
 
     // Piercing Ball

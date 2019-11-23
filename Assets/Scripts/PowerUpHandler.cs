@@ -1,41 +1,40 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUpHandler : MonoBehaviour {
     private Transform _transform;
 
-    private ActivePowerUp activePowerup;
+    private List<ActivePowerUp> activePowerupList;
     public PaddleController controller;
 
     private void Awake() {
         _transform = GetComponent<Transform>();
 
-        activePowerup = null;
+        activePowerupList = new List<ActivePowerUp>();
     }
 
     private void Update() {
-        if (activePowerup != null) {
+        for (int i = activePowerupList.Count - 1; i >= 0; i--) {
+            ActivePowerUp activePowerup = activePowerupList[i];
             activePowerup.timer -= Time.deltaTime;
 
             if (activePowerup.timer <= 0f) {
                 activePowerup.Remove(this);
                 activePowerup.timer = 0f;
-                activePowerup = null;
+                activePowerupList.RemoveAt(i);
             }
         }
     }
 
     public void ActivatePowerUp(PowerUp powerUp) {
-        if (powerUp.isOverwritable) {
-            activePowerup?.Remove(this);
-            activePowerup = new ActivePowerUp(powerUp);
-        }
-        
+        activePowerupList.Add(new ActivePowerUp(powerUp));
         powerUp.Apply(this);
     }
 
     public void AddPaddleLength(float amount) {
-        if (_transform.localScale.x + amount <= 6) {
-            _transform.localScale = new Vector3(_transform.localScale.x + amount, 1, 1);
+        float newSize = _transform.localScale.x + amount;
+        if (newSize <= 6 && newSize >= 0.5f) {
+            _transform.localScale = new Vector3(newSize, 1, 1);
         }
     }
 

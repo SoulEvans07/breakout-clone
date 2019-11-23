@@ -11,6 +11,7 @@ public class PowerUp : ScriptableObject {
 	[SerializeField] public PowerUpEvent applyAction;
 	[SerializeField] public PowerUpEvent removeAction;
 	[SerializeField] public Color color;
+	[SerializeField] public PowerUpType type;
 
 
     public void Apply(PowerUpHandler handler) {
@@ -23,5 +24,11 @@ public class PowerUp : ScriptableObject {
 
     [Serializable]
 	public class PowerUpEvent : UnityEvent<PowerUpHandler> {
+	}
+
+	public enum PowerUpType {
+		PADDLE_LENGTH,
+		BALL_COUNT,
+		BALL_EFFECT
 	}
 }

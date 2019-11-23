@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b458628c094448a38256e3f4b1c5b25, type: 3}
-  m_Name: DoubleLength
+  m_Name: ShrinkPaddle
   m_EditorClassIdentifier: 
   duration: 5
-  isOverwritable: 1
+  isOverwritable: 0
   applyAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3972666503457603304, guid: 994e6e8b08654445d96141972bd3c1da,
           type: 3}
-        m_MethodName: DoubleLengthApply
+        m_MethodName: ShrinkPaddleApply
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34,7 +34,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3972666503457603304, guid: 994e6e8b08654445d96141972bd3c1da,
           type: 3}
-        m_MethodName: DoubleLengthRemove
+        m_MethodName: ShrinkPaddleRemove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -44,4 +44,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  color: {r: 0.3537736, g: 0.7813432, b: 1, a: 1}
+  color: {r: 1, g: 0.019000754, b: 0, a: 1}
+  type: 0
