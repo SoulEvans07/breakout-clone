@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 
 public class PaddleController : MonoBehaviour {
+    public static float ballSpeed = 100f;
     public static List<GameObject> ballList = new List<GameObject>();
     private static float BASE_WIDTH = 33f;
     private float bound;
@@ -45,25 +46,39 @@ public class PaddleController : MonoBehaviour {
         countText.text = (ballCount + ballList.Count).ToString();
     }
 
+    public GameObject InstantiateBall() {
+        GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
+        BallController controller = ball.GetComponent<BallController>();
+        controller.speed = ballSpeed;
+        ballList.Add(ball);
+        return ball;
+    }
+
     public void SpawnBall() {
         if (ballCount + ballList.Count == 0) {
             Debug.Log("Game Over!");
         } else if (ballList.Count == 0) {
             ballCount--;
-            GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
-            ballList.Add(ball);
+            InstantiateBall();
         }
         UpdateBallCountText();
     }
 
     public void SpawnExtraBall() {
-        GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
-        ballList.Add(ball);
+        InstantiateBall();
         UpdateBallCountText();
     }
 
     public void AddExtraBall(int amount) {
         this.ballCount += amount;
         UpdateBallCountText();
+    }
+
+    public static void MultiplyBallSpeed(float multiplier) {
+        float newSpeed = ballSpeed * multiplier;
+        ballSpeed *= multiplier;
+        if (80 <= newSpeed && newSpeed <= 160) {
+            ballSpeed = newSpeed;
+        }
     }
 }

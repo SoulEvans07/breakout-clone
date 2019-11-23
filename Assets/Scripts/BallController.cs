@@ -27,4 +27,12 @@ public class BallController : MonoBehaviour {
             _rigidbody.velocity = dir * speed;
         }
     }
+
+    public void MultiplySpeed(float multiplier) {
+        float newSpeed = speed * multiplier;
+        speed *= multiplier;
+        if (80 <= newSpeed && newSpeed <= 160) {
+            speed = newSpeed;
+        }
+    }
 }
