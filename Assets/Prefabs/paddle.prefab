@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 2832925779684175080, guid: 36f60ab51b9224e4e9d6b269be26360e,
     type: 3}
-  ballCount: 4
+  ballCount: 5
   countText: {fileID: 0}
   speed: 150
 --- !u!114 &853284711387366936

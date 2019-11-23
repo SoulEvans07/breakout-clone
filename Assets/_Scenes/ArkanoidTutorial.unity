@@ -565,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 1801633341580915, guid: e6bbf0a8990c24431be7dab13b7847bf, type: 3}
       propertyPath: powerUp
       value: 
-      objectReference: {fileID: 11400000, guid: e8a5c4329d66e458f9262dbec5bee6c6,
+      objectReference: {fileID: 11400000, guid: b55db424e62724b38ac404c696f4ce85,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6bbf0a8990c24431be7dab13b7847bf, type: 3}

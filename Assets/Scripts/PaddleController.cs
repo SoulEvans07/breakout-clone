@@ -20,7 +20,7 @@ public class PaddleController : MonoBehaviour {
     private void Awake() {
         this._transform = transform;
         this._rigidbody = this.GetComponent<Rigidbody2D>();
-        countText.text = ballCount.ToString();
+        UpdateBallCountText();
     }
 
     private void Start() {
@@ -41,26 +41,29 @@ public class PaddleController : MonoBehaviour {
         this._rigidbody.velocity = Vector3.right * this.x * this.speed;
     }
 
+    private void UpdateBallCountText() {
+        countText.text = (ballCount + ballList.Count).ToString();
+    }
+
     public void SpawnBall() {
-        ballCount--;
-        countText.text = ballCount.ToString();
-        if (ballCount == 0) {
+        if (ballCount + ballList.Count == 0) {
             Debug.Log("Game Over!");
         } else if (ballList.Count == 0) {
+            ballCount--;
             GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
             ballList.Add(ball);
         }
+        UpdateBallCountText();
     }
 
     public void SpawnExtraBall() {
-        ballCount++;
-        countText.text = ballCount.ToString();
         GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
         ballList.Add(ball);
+        UpdateBallCountText();
     }
 
     public void AddExtraBall(int amount) {
         this.ballCount += amount;
-        countText.text = ballCount.ToString();
+        UpdateBallCountText();
     }
 }
