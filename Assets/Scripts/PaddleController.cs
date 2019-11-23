@@ -3,7 +3,6 @@ using TMPro;
 
 public class PaddleController : MonoBehaviour {
     private const float BASE_WIDTH = 33f;
-    [SerializeField]
     private float bound;
 
     private Transform _transform;
@@ -44,5 +43,10 @@ public class PaddleController : MonoBehaviour {
         } else {
             Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.1f, Quaternion.identity);
         }
+    }
+
+    public void AddExtraBall(int amount) {
+        this.ballCount += amount;
+        countText.text = ballCount.ToString();
     }
 }

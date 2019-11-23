@@ -10,6 +10,8 @@ public class PowerUp : ScriptableObject {
 	[SerializeField] public bool isOverwritable = true;
 	[SerializeField] public PowerUpEvent applyAction;
 	[SerializeField] public PowerUpEvent removeAction;
+	[SerializeField] public Color color;
+
 
     public void Apply(PowerUpHandler handler) {
 		applyAction?.Invoke(handler);

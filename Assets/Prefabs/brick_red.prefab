@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3078983048576248637, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
         type: 3}
       propertyPath: m_Name
-      value: brick_white
+      value: brick_red
       objectReference: {fileID: 0}
     - target: {fileID: 6175690227957168618, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
         type: 3}

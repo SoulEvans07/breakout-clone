@@ -1,10 +1,10 @@
 using UnityEngine;
 
 public class PowerUpHandler : MonoBehaviour {
-    private const float BASE_WIDTH = 33f;
     private Transform _transform;
 
     private ActivePowerUp activePowerup;
+    public PaddleController controller;
 
     private void Awake() {
         _transform = GetComponent<Transform>();
@@ -36,6 +36,16 @@ public class PowerUpHandler : MonoBehaviour {
     public void AddPaddleLength(float amount) {
         if (_transform.localScale.x + amount <= 6) {
             _transform.localScale = new Vector3(_transform.localScale.x + amount, 1, 1);
+        }
+    }
+
+    public void AddExtraBall(int amount) {
+        controller.AddExtraBall(amount);
+    }
+
+    public void EnablePiercingBall(bool enable) {
+        foreach (BrickController brick in BrickController.brickList) {
+            brick.EnableTrigger(enable);
         }
     }
 }
