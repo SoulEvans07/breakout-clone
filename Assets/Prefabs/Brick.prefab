@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eac776dbcae34cd8a08dc8663d7c249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unbreakableSprite: {fileID: 21300000, guid: 21d74b3ecd2e74e44b30bc088c3d13d1, type: 3}
   damageSprites:
   - {fileID: 21300000, guid: ea23eebdc87594765b7ec55d99d9ff54, type: 3}
   - {fileID: 21300000, guid: 0963c860d3e5442dbb03126204117bd9, type: 3}

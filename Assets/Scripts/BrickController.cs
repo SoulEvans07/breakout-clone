@@ -18,7 +18,18 @@ public class BrickController : MonoBehaviour {
         brickList.Add(this);
     }
 
+    public void SetHitPoint(int hitPoints) {
+        this.hitPoints = hitPoints;
+
+        if (hitPoints <= 0) {
+            _damageHandler.SetUnbreakable();
+            brickList.Remove(this);
+        }
+    }
+
     private void HandleHit() {
+        if (hitPoints <= 0) return;
+
         damage++;
 
         if (damage == hitPoints) {

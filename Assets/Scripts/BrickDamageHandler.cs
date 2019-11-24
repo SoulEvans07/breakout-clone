@@ -3,10 +3,15 @@ using UnityEngine;
 public class BrickDamageHandler : MonoBehaviour {
     private SpriteRenderer _renderer;
 
+    public Sprite unbreakableSprite;
     public Sprite[] damageSprites;
 
     private void Awake() {
         _renderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void SetUnbreakable() {
+        _renderer.sprite = unbreakableSprite;
     }
 
     public void SetDamage(int dmg, int hitPoints) {

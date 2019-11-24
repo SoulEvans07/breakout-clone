@@ -43,17 +43,15 @@ public class MapLoader : MonoBehaviour {
         Color color;
         if (ColorUtility.TryParseHtmlString(brickData.color, out color)) {
             brick.GetComponent<SpriteRenderer>().color = color;
-
-            
+            BrickController controller = brick.GetComponent<BrickController>();
+            controller.SetHitPoint(brickData.hitPoints);
             
             if (brickData.powerUp.name != null) {
                 PowerUpObject pu = powerupMap[brickData.powerUp.name];
 
                 if (pu != null) {
                     pu.duration = brickData.powerUp.duration;
-                    BrickController controller = brick.GetComponent<BrickController>();
                     controller.powerUp = pu;
-                    controller.hitPoints = brickData.hitPoints;
                 }
             }
         }
