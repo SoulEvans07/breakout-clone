@@ -17,7 +17,7 @@ using System;
 public class Brick {
     public int type;
     public int x, y;
-    public int value;
+    public int hitPoints;
     public string color;
     public PowerUp powerUp;
 }

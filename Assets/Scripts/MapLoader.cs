@@ -51,7 +51,9 @@ public class MapLoader : MonoBehaviour {
 
                 if (pu != null) {
                     pu.duration = brickData.powerUp.duration;
-                    brick.GetComponent<BrickController>().powerUp = pu;
+                    BrickController controller = brick.GetComponent<BrickController>();
+                    controller.powerUp = pu;
+                    controller.hitPoints = brickData.hitPoints;
                 }
             }
         }

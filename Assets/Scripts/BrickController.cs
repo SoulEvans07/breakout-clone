@@ -5,9 +5,12 @@ public class BrickController : MonoBehaviour {
     public static List<BrickController> brickList = new List<BrickController>();
 
     private BoxCollider2D _collider;
+    public BrickDamageHandler _damageHandler;
 
     public PowerUpObject powerUp;
     public GameObject powerUpPickupPrefab;
+    public int hitPoints = 1;
+    private int damage = 0;
 
     private void Awake() {
         _collider = GetComponent<BoxCollider2D>();
@@ -16,14 +19,20 @@ public class BrickController : MonoBehaviour {
     }
 
     private void HandleHit() {
-        brickList.Remove(this);
-        Destroy(this.gameObject);
+        damage++;
 
-        if (brickList.Count == 0) {
-            Debug.Log("You won!");
-        } else if (powerUp != null) {
-            GameObject pu = Instantiate(powerUpPickupPrefab, transform.position, Quaternion.identity);
-            pu.GetComponent<PowerUpBehavior>().SetPowerUp(powerUp);
+        if (damage == hitPoints) {
+            brickList.Remove(this);
+            Destroy(this.gameObject);
+
+            if (brickList.Count == 0) {
+                Debug.Log("You won!");
+            } else if (powerUp != null) {
+                GameObject pu = Instantiate(powerUpPickupPrefab, transform.position, Quaternion.identity);
+                pu.GetComponent<PowerUpBehavior>().SetPowerUp(powerUp);
+            }
+        } else {
+            _damageHandler.SetDamage(damage, hitPoints);
         }
     }
 
