@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2832925779684175081}
   - component: {fileID: 2832925779684175085}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: e965f1f37ab3848459fcd5ecf7ae8aef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

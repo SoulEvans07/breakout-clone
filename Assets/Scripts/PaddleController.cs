@@ -47,7 +47,7 @@ public class PaddleController : MonoBehaviour {
     }
 
     public GameObject InstantiateBall() {
-        GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.0f, Quaternion.identity);
+        GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.15f, Quaternion.identity);
         BallController controller = ball.GetComponent<BallController>();
         controller.speed = ballSpeed;
         ballList.Add(ball);
