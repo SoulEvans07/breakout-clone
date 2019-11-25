@@ -1,8 +1,10 @@
 using System.IO;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class MapLoader : MonoBehaviour {
+    public GameInitializer _gameInitializer;
     public GameObject brickPrefab;
     public string path = "Assets/Resources/level_01.json";
     public List<PowerUpObject> powerupList = new List<PowerUpObject>();
@@ -10,8 +12,8 @@ public class MapLoader : MonoBehaviour {
 
     public void Awake() {
         powerupMap = MapPowerUps(powerupList);
-
-        string json = ReadJsonFile(path);
+        // string json = ReadJsonFile(path);
+        string json = _gameInitializer.storyLevels[0].text;
         Level level = JsonUtility.FromJson<Level>(json);
         Load(level);
     }
@@ -22,11 +24,6 @@ public class MapLoader : MonoBehaviour {
             map.Add(pu.name, pu);
         }
         return map;
-    }
-
-    private string ReadJsonFile(string path) {
-        StreamReader reader = new StreamReader(path); 
-        return reader.ReadToEnd();
     }
 
     private void Load(Level level) {

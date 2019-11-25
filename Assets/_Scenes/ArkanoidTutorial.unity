@@ -914,7 +914,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -2133974487
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &203863488
@@ -4508,8 +4508,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1399729684}
   - component: {fileID: 1399729685}
+  - component: {fileID: 1399729686}
   m_Layer: 0
-  m_Name: Map
+  m_Name: MapLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4541,6 +4542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e087e08f4c2441579ea09385be51f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameInitializer: {fileID: 1399729686}
   brickPrefab: {fileID: 3078983048576248637, guid: 241fcd4e9cc2c43fdab80e3fc41d4d7c,
     type: 3}
   path: /Users/Adam_Szi/level_01.json
@@ -4552,6 +4554,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 073aac6e6233243b985d18ecf76632ef, type: 2}
   - {fileID: 11400000, guid: e8a5c4329d66e458f9262dbec5bee6c6, type: 2}
   - {fileID: 11400000, guid: b55db424e62724b38ac404c696f4ce85, type: 2}
+--- !u!114 &1399729686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399729683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faea1842ab6ae45fa96307295532353b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyLevels:
+  - {fileID: 4900000, guid: a254d607ea8594b57b0b98c08277e21c, type: 3}
+  userLevelTemplate: {fileID: 4900000, guid: 839136d2cee91476b8fb7658bae8738c, type: 3}
+  userLevels: []
 --- !u!1001 &1421665224
 PrefabInstance:
   m_ObjectHideFlags: 0
