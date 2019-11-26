@@ -1,6 +1,5 @@
-using System.IO;
 using System.Collections.Generic;
-using System;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MapLoader : MonoBehaviour {
@@ -10,6 +9,7 @@ public class MapLoader : MonoBehaviour {
     private Dictionary<string, PowerUpObject> powerupMap;
 
     public void Awake() {
+        Time.timeScale = 1f;
         BrickController.brickList = new List<BrickController>();
         powerupMap = MapPowerUps(powerupList);
         Level level = JsonUtility.FromJson<Level>(GameState.selectedLevel);
@@ -25,6 +25,11 @@ public class MapLoader : MonoBehaviour {
     }
 
     private void Load(Level level) {
+        if (level == null || level.map == null) {
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
+        
         foreach (Brick brick in level.map) {
             SpawnBrick(brick);
         }

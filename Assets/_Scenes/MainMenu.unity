@@ -577,9 +577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyLevels:
+  - {fileID: 4900000, guid: 2633f4ad73d7b4d8b84d765ee78bc68c, type: 3}
   - {fileID: 4900000, guid: a254d607ea8594b57b0b98c08277e21c, type: 3}
-  - {fileID: 4900000, guid: 839136d2cee91476b8fb7658bae8738c, type: 3}
-  - {fileID: 4900000, guid: 1868c52f55c014dcfbd1024cbda2acc6, type: 3}
   userLevelTemplate: {fileID: 4900000, guid: 839136d2cee91476b8fb7658bae8738c, type: 3}
 --- !u!1 &1616347036
 GameObject:

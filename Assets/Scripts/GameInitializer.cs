@@ -31,12 +31,16 @@ public class GameInitializer : MonoBehaviour {
 
         string[] userLevelPathList = Directory.GetFiles(absoluteGameFolderPath);
         foreach(string path in userLevelPathList) {
-            TextAsset asset = new TextAsset(ReadJsonFromFile(path));
-
             string[] parts = path.Split(Path.DirectorySeparatorChar);
-            asset.name = parts[parts.Length - 1];
             
-            GameState.userLevels.Add(asset);
+            string fileName = parts[parts.Length - 1];
+            fileName = fileName.Substring(0, fileName.Length - 5);
+
+            if (fileName != userLevelTemplate.name) {
+                TextAsset asset = new TextAsset(ReadJsonFromFile(path));
+                asset.name = fileName;
+                GameState.userLevels.Add(asset);
+            }
         }
     }
 

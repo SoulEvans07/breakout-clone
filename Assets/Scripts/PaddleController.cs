@@ -38,7 +38,7 @@ public class PaddleController : MonoBehaviour {
 
     private void Update() {
         if (gameOver) return;
-        if (Input.GetButtonUp("Cancel")) SceneManager.LoadScene("MainMenu");
+        if (Input.GetButtonUp("Cancel")) _gameController.PauseGame();
 
         this.x = Input.GetAxis("Horizontal");
         Move();

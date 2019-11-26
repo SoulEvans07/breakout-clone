@@ -21,6 +21,11 @@ public class LevelSelector : MonoBehaviour {
             PlaceButton(NextPos(i), () => this.SelectLevel(lvl), lvl.name);
             i++;
         }
+        foreach(TextAsset lvl in GameState.userLevels) {
+            PlaceButton(NextPos(i), () => this.SelectLevel(lvl), lvl.name);
+            i++;
+        }
+
 
         PlaceButton(NextPos(i) + Vector3.down * btnHeight, backToMainMenu.Invoke, "Back");
         
