@@ -10,6 +10,7 @@ public class MapLoader : MonoBehaviour {
     private Dictionary<string, PowerUpObject> powerupMap;
 
     public void Awake() {
+        BrickController.brickList = new List<BrickController>();
         powerupMap = MapPowerUps(powerupList);
         Level level = JsonUtility.FromJson<Level>(GameState.selectedLevel);
         Load(level);

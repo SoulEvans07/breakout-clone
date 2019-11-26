@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BrickController : MonoBehaviour {
     private GamePlayController _gameController;
-    public static List<BrickController> brickList = new List<BrickController>();
+    public static List<BrickController> brickList;
 
     private BoxCollider2D _collider;
     public BrickDamageHandler _damageHandler;

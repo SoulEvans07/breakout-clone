@@ -6,9 +6,11 @@ using TMPro;
 public class PaddleController : MonoBehaviour {
     public GamePlayController _gameController;
 
-    public static float ballSpeed = 100f;
-    public static List<GameObject> ballList = new List<GameObject>();
     private static float BASE_WIDTH = 33f;
+
+    public float baseBallSpeed = 100f;
+    public static float ballSpeed = 100f;
+    public static List<GameObject> ballList;
     private float bound;
 
     private Transform _transform;
@@ -25,7 +27,11 @@ public class PaddleController : MonoBehaviour {
     private void Awake() {
         this._transform = transform;
         this._rigidbody = this.GetComponent<Rigidbody2D>();
+
+        ballList = new List<GameObject>();
+        ballSpeed = baseBallSpeed;
         gameOver = false;
+        
         UpdateBallCountText();
         this.SpawnBall();
     }
@@ -51,7 +57,7 @@ public class PaddleController : MonoBehaviour {
         countText.text = (ballCount + ballList.Count).ToString();
     }
 
-    private GameObject InstantiateBall() {
+    public GameObject InstantiateBall() {
         GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.15f, Quaternion.identity);
         BallController controller = ball.GetComponent<BallController>();
         controller.speed = ballSpeed;
