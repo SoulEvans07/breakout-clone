@@ -9,9 +9,11 @@ public class GameInitializer : MonoBehaviour {
 
     public List<TextAsset> storyLevels = new List<TextAsset>();
     public TextAsset userLevelTemplate;
-    public List<TextAsset> userLevels = new List<TextAsset>();
 
     private void Awake() {
+        GameState.storyLevels = new List<TextAsset>();
+        GameState.userLevels = new List<TextAsset>();
+
         string absoluteGameFolderPath = USER_HOME + Path.DirectorySeparatorChar + GAME_FOLDER;
         string templateFilePath = absoluteGameFolderPath + Path.DirectorySeparatorChar + userLevelTemplate.name + ".json";
 
@@ -23,6 +25,10 @@ public class GameInitializer : MonoBehaviour {
             WriteJsonToFile(templateFilePath, userLevelTemplate.text);
         }
 
+        foreach (TextAsset lvl in storyLevels) {
+            GameState.storyLevels.Add(lvl);
+        }
+
         string[] userLevelPathList = Directory.GetFiles(absoluteGameFolderPath);
         foreach(string path in userLevelPathList) {
             TextAsset asset = new TextAsset(ReadJsonFromFile(path));
@@ -30,7 +36,7 @@ public class GameInitializer : MonoBehaviour {
             string[] parts = path.Split(Path.DirectorySeparatorChar);
             asset.name = parts[parts.Length - 1];
             
-            userLevels.Add(asset);
+            GameState.userLevels.Add(asset);
         }
     }
 

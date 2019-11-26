@@ -4,17 +4,14 @@ using System;
 using UnityEngine;
 
 public class MapLoader : MonoBehaviour {
-    public GameInitializer _gameInitializer;
+    public GamePlayController _gameController;
     public GameObject brickPrefab;
-    public string path = "Assets/Resources/level_01.json";
     public List<PowerUpObject> powerupList = new List<PowerUpObject>();
     private Dictionary<string, PowerUpObject> powerupMap;
 
     public void Awake() {
         powerupMap = MapPowerUps(powerupList);
-        // string json = ReadJsonFile(path);
-        string json = _gameInitializer.storyLevels[0].text;
-        Level level = JsonUtility.FromJson<Level>(json);
+        Level level = JsonUtility.FromJson<Level>(GameState.selectedLevel);
         Load(level);
     }
 
@@ -41,6 +38,7 @@ public class MapLoader : MonoBehaviour {
         if (ColorUtility.TryParseHtmlString(brickData.color, out color)) {
             brick.GetComponent<SpriteRenderer>().color = color;
             BrickController controller = brick.GetComponent<BrickController>();
+            controller.SetGameController(_gameController);
             controller.SetHitPoint(brickData.hitPoints);
             
             if (brickData.powerUp.name != null) {

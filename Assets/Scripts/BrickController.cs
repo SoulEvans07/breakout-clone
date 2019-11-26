@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickController : MonoBehaviour {
+    private GamePlayController _gameController;
     public static List<BrickController> brickList = new List<BrickController>();
 
     private BoxCollider2D _collider;
@@ -27,6 +28,10 @@ public class BrickController : MonoBehaviour {
         }
     }
 
+    public void SetGameController(GamePlayController controller) {
+        _gameController = controller;
+    }
+
     private void HandleHit() {
         if (hitPoints <= 0) return;
 
@@ -37,7 +42,7 @@ public class BrickController : MonoBehaviour {
             Destroy(this.gameObject);
 
             if (brickList.Count == 0) {
-                Debug.Log("You won!");
+                _gameController.ShowWinScreen();
             } else if (powerUp != null) {
                 GameObject pu = Instantiate(powerUpPickupPrefab, transform.position, Quaternion.identity);
                 pu.GetComponent<PowerUpBehavior>().SetPowerUp(powerUp);

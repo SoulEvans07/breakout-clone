@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PaddleController : MonoBehaviour {
+    public GamePlayController _gameController;
+
     public static float ballSpeed = 100f;
     public static List<GameObject> ballList = new List<GameObject>();
     private static float BASE_WIDTH = 33f;
@@ -17,18 +20,20 @@ public class PaddleController : MonoBehaviour {
 
     public float speed = 150f;
     private float x;
+    private bool gameOver;
 
     private void Awake() {
         this._transform = transform;
         this._rigidbody = this.GetComponent<Rigidbody2D>();
+        gameOver = false;
         UpdateBallCountText();
-    }
-
-    private void Start() {
         this.SpawnBall();
     }
 
     private void Update() {
+        if (gameOver) return;
+        if (Input.GetButtonUp("Cancel")) SceneManager.LoadScene("MainMenu");
+
         this.x = Input.GetAxis("Horizontal");
         Move();
         
@@ -46,7 +51,7 @@ public class PaddleController : MonoBehaviour {
         countText.text = (ballCount + ballList.Count).ToString();
     }
 
-    public GameObject InstantiateBall() {
+    private GameObject InstantiateBall() {
         GameObject ball = Instantiate(ballPrefab, _transform.position + Vector3.up * 10 + Vector3.right * 0.15f, Quaternion.identity);
         BallController controller = ball.GetComponent<BallController>();
         controller.speed = ballSpeed;
@@ -55,8 +60,10 @@ public class PaddleController : MonoBehaviour {
     }
 
     public void SpawnBall() {
+        if (gameOver) return;
+
         if (ballCount + ballList.Count == 0) {
-            Debug.Log("Game Over!");
+            _gameController.ShowGameOverScreen();
         } else if (ballList.Count == 0) {
             ballCount--;
             InstantiateBall();
@@ -65,13 +72,21 @@ public class PaddleController : MonoBehaviour {
     }
 
     public void SpawnExtraBall() {
+        if (gameOver) return;
+
         InstantiateBall();
         UpdateBallCountText();
     }
 
     public void AddExtraBall(int amount) {
+        if (gameOver) return;
+
         this.ballCount += amount;
         UpdateBallCountText();
+    }
+
+    public void GameOver() {
+        this.gameOver = true;
     }
 
     public static void MultiplyBallSpeed(float multiplier) {
